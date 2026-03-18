@@ -3,10 +3,12 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
+    "allowImportingTsExtensions": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
+    "noEmit": true,
     "outDir": "dist",
     "lib": ["ESNext", "DOM"],
     "types": ["node"]

@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import { requestSong } from './generative';
 
-export async function playAIGeneratedSong(prompt: string, position: THREE.Vector3) {
-  const buffer = await requestSong(prompt);
+export async function playAIGeneratedSong(songId: string, position: THREE.Vector3) {
+  const buffer = await requestSong(songId);
   const audioCtx = new AudioContext();
   const source = audioCtx.createBufferSource();
   source.buffer = buffer;

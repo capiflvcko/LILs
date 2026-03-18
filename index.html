@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LILs Demo</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: linear-gradient(180deg, #c8ebff 0%, #9ad46f 55%, #6dad4d 100%);
+        color: #23310f;
+        font-family: "Courier New", monospace;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.45), transparent 32%),
+          radial-gradient(circle at bottom right, rgba(255, 209, 106, 0.28), transparent 26%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      canvas {
+        display: block;
+        position: relative;
+        z-index: 1;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+      }
+
+      .hud {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        padding: 12px 14px;
+        border-radius: 6px;
+        background: rgba(248, 242, 204, 0.92);
+        border: 3px solid rgba(82, 108, 34, 0.45);
+        box-shadow: 8px 8px 0 rgba(54, 73, 23, 0.18);
+        font: 13px/1.5 "Courier New", monospace;
+        z-index: 1000;
+      }
+
+      .hud kbd {
+        background: #ffffff;
+        border: 2px solid rgba(94, 133, 52, 0.35);
+        padding: 2px 7px;
+        border-radius: 4px;
+      }
+
+      #instructions {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        max-width: 300px;
+        padding: 14px 16px;
+        border-radius: 6px;
+        background: rgba(248, 242, 204, 0.95);
+        border: 3px solid rgba(94, 133, 52, 0.36);
+        box-shadow: 8px 8px 0 rgba(57, 83, 25, 0.16);
+        z-index: 10000;
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 260ms ease, transform 260ms ease;
+      }
+
+      #instructions strong {
+        font-size: 22px;
+        color: #304317;
+      }
+
+      #instructions span {
+        font-size: 14px;
+      }
+
+      #instructions.hidden {
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+      }
+
+      #instructions.paused {
+        background: rgba(248, 242, 204, 0.98);
+        border-color: rgba(196, 134, 74, 0.5);
+        box-shadow: 10px 10px 0 rgba(80, 57, 24, 0.18);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hud">
+      <div>Arrow keys move or click the ground to move.</div>
+      <div>Press <kbd>Esc</kbd> to pause and reopen help.</div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+  </html>
